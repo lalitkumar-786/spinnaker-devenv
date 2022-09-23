@@ -6,6 +6,7 @@ metadata:
 spec: {}
 status: {}
 
+
 ---
 
 apiVersion: apps/v1
@@ -17,7 +18,7 @@ metadata:
   name: lalit-app
   namespace: lalit-dev-ns
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: lalit-app
