@@ -44,8 +44,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: ashusvc1
-  name: ashusvc1
+    app: lalitsvc
+  name: lalitsvc
   namespace: lalit-dev-ns
 spec:
   ports:
