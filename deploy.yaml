@@ -13,20 +13,20 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: lalit=app
-  name: lalit=app
+    app: lalit-app
+  name: lalit-app
   namespace: lalit-dev-ns
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: lalit=app
+      app: lalit-app
   strategy: {}
-  template:
+  template: # tempalte of pods
     metadata:
       creationTimestamp: null
-      labels:
-        app: lalit=app
+      labels: # label of pods 
+        app: lalit-app
     spec:
       containers:
       - image: dockerashu/ashumobiwebapp:6
@@ -52,8 +52,8 @@ spec:
     port: 7777
     protocol: TCP
     targetPort: 80
-  selector:
-    app: ashusvc1
-  type: NodePort
+  selector: # is finding pod using pod labels to create Endpoints  
+    app: lalit-app # exact label of pods
+  type: NodePort 
 status:
   loadBalancer: {}
