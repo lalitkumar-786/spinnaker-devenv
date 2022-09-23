@@ -18,7 +18,7 @@ metadata:
   name: lalit-app
   namespace: lalit-dev-ns
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: lalit-app
