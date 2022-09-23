@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: lalit-dev-ns
+spec: {}
+status: {}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: lalit=app
+  name: lalit=app
+  namespace: lalit-dev-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lalit=app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: lalit=app
+    spec:
+      containers:
+      - image: dockerashu/ashumobiwebapp:6
+        name: ashumobiwebapp
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashusvc1
+  name: ashusvc1
+  namespace: lalit-dev-ns
+spec:
+  ports:
+  - name: 7777-80
+    port: 7777
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ashusvc1
+  type: NodePort
+status:
+  loadBalancer: {}
